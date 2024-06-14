@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
-using POS.Application.Dtos.Request;
-using POS.Application.Dtos.Response;
+using POS.Application.Dtos.Category.Request;
+using POS.Application.Dtos.Category.Response;
 using POS.Domain.Entities;
 using POS.Infraestructura.Commons.Bases.Response;
 using POS.Utilities.Static;
 
 namespace POS.Application.Mappers
 {
-    public class CategoryMappingProfile : Profile
+    public class CategoryMappingsProfile : Profile
     {
-        public CategoryMappingProfile()
+        public CategoryMappingsProfile()
         {
 
             CreateMap<Category, CategoryResponseDto>()

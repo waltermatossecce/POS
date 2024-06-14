@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using POS.Application.Commons.Bases;
-using POS.Application.Dtos.Request;
-using POS.Application.Dtos.Response;
+using POS.Application.Dtos.Category.Request;
+using POS.Application.Dtos.Category.Response;
 using POS.Application.Interfaces;
 using POS.Application.Validators.Category;
 using POS.Domain.Entities;
@@ -93,7 +93,7 @@ namespace POS.Application.Services
             if(!validationResult.IsValid)
             {
                 response.IsSuccess = false; 
-                response.Message = ReplyMessage.MESSAGE_FAILED;
+                response.Message = ReplyMessage.MESSAGE_VALIDATE;
                 response.Errors = validationResult.Errors;
                 return response;
             }
@@ -124,6 +124,7 @@ namespace POS.Application.Services
             {
                 response.IsSuccess = false;
                 response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+                return response;    
             }
 
             var category = _mapper.Map<Category>(request);
@@ -155,6 +156,7 @@ namespace POS.Application.Services
             {
                 response.IsSuccess = false;
                 response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+                return response;
             }
 
             response.Data = await _unitOfWorK.Category.RemoveAsync(categoryId);

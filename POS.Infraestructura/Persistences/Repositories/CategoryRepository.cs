@@ -4,7 +4,6 @@ using POS.Infraestructura.Commons.Bases.Request;
 using POS.Infraestructura.Commons.Bases.Response;
 using POS.Infraestructura.Persistences.Context;
 using POS.Infraestructura.Persistences.Interfaces;
-using POS.Utilities.Static;
 
 namespace POS.Infraestructura.Persistences.Repositories
 {
@@ -21,7 +20,7 @@ namespace POS.Infraestructura.Persistences.Repositories
             var response = new BaseEntityResponse<Category>();
 
      
-            var categories = GetEntityQuery(x => x.AuditDeleteUser == null && x.AuditDeleteUser == null);
+            var categories = GetEntityQuery(x => x.AuditDeleteUser == null && x.AuditDeleteUser == null).AsNoTracking();
 
 
             //condicion de filtros 
